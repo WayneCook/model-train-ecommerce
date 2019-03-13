@@ -31,7 +31,7 @@
   </div>
 </div>
 
-<shopping-cart></shopping-cart>
+{{-- <shopping-cart></shopping-cart> --}}
 
 <product-slider :heading='"Featured Products"' :products='{{ $featuredProducts }}'></product-slider>
 
