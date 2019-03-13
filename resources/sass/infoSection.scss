@@ -1,0 +1,50 @@
+.info-section-container {
+  margin: 125px 0px;
+}
+
+.info-section {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.info-box {
+  color: rgba(17, 51, 85, 0.9);
+  text-align: center;
+  position: relative;
+  max-width: 240px;
+  margin: auto;
+}
+
+.info-box p {
+  color: rgba(17, 51, 85, 0.68);
+  text-align: left;
+  font-size: 14px;
+}
+
+.info-box h4 {
+  // font-family: "Roboto Slab", sans-serif;
+  font-size: 24px;
+  color: hsla(210, 67%, 20%, 0.9);
+  margin-bottom: 18px;
+}
+
+span.info-icons {
+  color: hsl(210, 66%, 20%);
+}
+
+span.info-icons:before {
+  font-size: 52px;
+  display: block;
+  margin: 0;
+}
+
+.check-icon {
+  color: #26aa36;
+
+}
+
+span.check-icon:before {
+  font-size: 28px;
+  margin-left: 10px;
+
+}

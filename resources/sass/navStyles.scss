@@ -1,0 +1,261 @@
+img.navLogo {
+  width: 142px;
+  margin: 28px 2px;
+  transition: width .35s ease-out;
+  image-rendering: -moz-crisp-edges;         /* Firefox */
+  image-rendering:   -o-crisp-edges;         /* Opera */
+  image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+}
+
+.heading {
+  position: relative;
+  background-color: whitesmoke;
+  z-index: 99991;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+// span.cartIcon {
+//   position: absolute;
+//   font-size: 66%;
+//   min-width: 20px;
+//   height: 20px;
+//   color: white;
+//   font-weight: 600;
+//   align-items: center;
+//   margin: 0px;
+//   bottom: 28px;
+//   line-height: 1px;
+//   right: -14px;
+//   border-radius: 20px;
+//   display: flex;
+//   justify-content: center;
+//   padding: 5px;
+//   background-color: #00998a;
+// }
+
+.main-nav .cartIcon[data-count]:after {
+
+  position: absolute;
+  top: -16px;
+  left: 4px;
+  margin: 20px;
+  content: attr(data-count);
+  font-size: 68%;
+  padding: 0.5em;
+  border-radius: 30px;
+  color: white;
+  text-align: center;
+  height: 20px;
+  min-width: 20px;
+  font-weight: 600;
+  background-color: #00998a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99992;
+}
+
+.small-nav .cartIcon[data-count]:after {
+  position: absolute;
+  top: -21px;
+  left: -2px;
+  margin: 20px;
+  content: attr(data-count);
+  font-size: 62%;
+  padding: 0.3em;
+  border-radius: 18px;
+  color: white;
+  text-align: center;
+  height: 18px;
+  min-width: 18px;
+  font-weight: 600;
+  background-color: #00998a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99992;
+}
+
+.navbar-custom {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  width: 100%;
+  background-color: $blueTheme;
+}
+
+ul.list {
+  list-style-type: none;
+  cursor: default;
+  margin: 0px;
+}
+
+.list li * {
+  pointer-events: none;
+}
+
+.list li i {
+  margin-left: 2px;
+  transition: all .15s ease;
+}
+
+.selected {
+  box-shadow: inset 0px -5px 0px 0px #EC4036;
+}
+
+.fa-angle-down:before {
+    content: "\F107";
+}
+
+.wrapper {
+  display: flex;
+  padding: 0px 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo-container h1 {
+  display: block;
+  width: 100px;
+  margin: 7px;
+  font-weight: 700;
+  font-size: 18px;
+  color: rgba(52, 63, 78, 0.78);
+}
+
+.logo-container h1:first-child {
+  text-align: right;
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-container span {
+  margin-top: 24px;
+  margin-left: 0px;
+}
+
+.logo-container .flaticon-online-shopping-cart {
+
+  position: relative;
+}
+
+.flaticon-online-shopping-cart, .flaticon-magnifying-glass-browser  {
+  color: rgba(22, 51, 80, 0.82);
+  display: block;
+}
+
+.logo-container .flaticon-online-shopping-cart:before, .small-nav .flaticon-online-shopping-cart:before {
+    font-size: 32px;
+    margin-left: 0px;
+}
+
+.small-nav .flaticon-online-shopping-cart:before {
+    font-size: 26px;
+    margin-left: 0px;
+}
+
+
+
+.logo-container .flaticon-magnifying-glass-browser:before {
+    font-size: 32px;
+    margin-left: 0px;
+    align-self: flex-end;
+}
+
+.list li {
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 44px;
+  letter-spacing: .5px;
+  font-weight: 600;
+  padding: 11px;
+  text-transform: uppercase;
+  transition: all .15s ease;
+}
+
+//small navbar
+.small-nav {
+  position: fixed;
+  top: -500px;
+  z-index: 99991;
+  width: 100%;
+  background-color: whitesmoke;
+  box-shadow: 0px 3px 13px -7px #000000;
+  transition: all .75s ease-in-out;
+  opacity: 0;
+  // display: none;
+}
+
+.small-nav.show-small-nav {
+  top: 0px;
+  opacity: 1;
+}
+
+nav.navbar-custom.menu.small-menu {
+  background-color: whitesmoke;
+}
+
+nav.navbar-custom.menu.small-menu li {
+  padding: 18px;
+  margin-right: 28px;
+  font-weight: 700;
+}
+
+.navbar-custom.main-menu .dropDownSection {
+  position: absolute;
+  top: 41px;
+  z-index: 9999;
+  background-color: hsla(0, 0%, 100%, 1);
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  padding: 28px;
+  flex-direction: row;
+  justify-content: center;
+  box-shadow: 0px 3px 8px -3px #00000078;
+  border-top: 4px solid #00998a;
+}
+
+.navbar-custom.small-menu .dropDownSection {
+    position: absolute;
+    top: 55px;
+    z-index: 9999;
+    background-color: hsla(0, 0%, 100%, 1);
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    padding: 28px;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 0px 3px 8px -3px #00000078;
+    border-top: 4px solid #00998a;
+}
+
+.small-nav .flaticon-online-shopping-cart {
+  color: rgba(22, 51, 80, 0.82);
+  margin-right: 49px;
+  position: absolute;
+  top: 9px;
+  right: 0px;
+  z-index: 99992;
+}
+
+.small-nav-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+}

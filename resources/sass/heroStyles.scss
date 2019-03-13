@@ -1,0 +1,103 @@
+
+.hero-train-column, .hero-layout-column {
+  position: relative;
+  height: calc(100vh - 167px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-container {
+  overflow: hidden;
+}
+
+.hero-train-column {
+  border-right: 2px solid #f5f5f5;
+}
+
+.hero-train-column:before {
+  z-index: 9998;
+  content: "";
+  position: absolute;
+  background-image: url('../images/hero-train.jpg');
+  background-size: cover;
+  background-position: 77% center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: all .35s ease-in-out;
+}
+
+.hero-layout-column:before {
+  z-index: 9998;
+  content: "";
+  position: absolute;
+  background-image: url('../images/hero-tree.jpg');
+  background-size: cover;
+  background-position: left center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: all .35s ease-in-out;
+}
+
+.hero-train-column:hover::before, .hero-layout-column:hover::before {
+  transform: scale(1.04);
+}
+
+.column-wrapper {
+  z-index: 9999;
+  width: 100%;
+  height: calc(100vh - 188.5px);
+}
+
+body #app .main-container {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-top: 2px;
+}
+
+.heroContent {
+  z-index: 9999;
+  color: white;
+  text-align: center;
+  max-width: 430px;
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 30px;
+  margin-bottom: 12px;
+  line-height: 1;
+  font-weight: 600;
+  text-align: left;
+}
+
+.heroContent p {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 32px;
+  }
+
+.hero-train-column:after, .hero-layout-column:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(209, 52%, 15%, 0.5);
+  z-index: 9998;
+  transition: all .35s ease-in-out;
+}
+
+.hero-train-column:hover::after, .hero-layout-column:hover::after  {
+  background-color: hsla(208, 53%, 10%, 0.65);
+}
