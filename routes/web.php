@@ -29,15 +29,11 @@ Route::get('remove-from-cart/{id}/{count}', 'CartController@removeFromCart')->na
 Route::get('cart-reset', 'CartController@cartReset');
 Route::get('get-cart', 'CartController@getCart');
 
-Route::get('/{category}/{subCategory}', 'subCategoryController@index');
+// Route::get('/{category}/{subCategory}', 'subCategoryController@index');
 
 Route::get('/{category}', 'CategoryController@index')->name('category');
-Route::get('admin/products/edit/{id}', 'newProductController@edit')->name('editProduct');
-Route::post('admin/products/update/{id}', 'ProductController@update')->name('updateProduct');
 
 
 // Route::get('/{category}/{subCategory}', 'CategoryController@show')->name('search');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
