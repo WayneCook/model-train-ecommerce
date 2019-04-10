@@ -13,6 +13,9 @@ const mix = require('laravel-mix');
 
  mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
+    .copy('node_modules/dropzone/dist/dropzone.js', 'public/js/dropzone')
+    .copy('node_modules/dropzone/dist/dropzone.css', 'public/css/dropzone')
+    .copy('node_modules/jquery-ui/ui/widgets/sortable.js', 'public/js/sortable')
     .browserSync({
      proxy: 'http://127.0.0.1:8000/',
      browser: 'chrome'

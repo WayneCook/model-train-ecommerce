@@ -22,7 +22,6 @@ $factory->define(Product::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence($nbWords = 3, $variableNbWords = true),
         'description' => 'This is a product description.',
-        'images' => 'This should be image oject',
         'price' => $faker->numberBetween($min = 100, $max = 800),
         'categories_id' => 1,
         'sub_categories_id' => 2,

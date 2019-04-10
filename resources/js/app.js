@@ -1,6 +1,12 @@
 
 require('./bootstrap');
 require('./aboutTrainParallax');
+
+// import $ from 'jquery';
+// window.$ = window.jQuery = $;
+global.$ = global.jQuery = require('jquery');
+
+import 'jquery-ui/ui/widgets/sortable.js';
 // require('./css3-animate-it');
 
 

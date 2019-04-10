@@ -17,9 +17,12 @@ class CreateProductsTable extends Migration
             $table->string('brand')->nullable();
             $table->string('scale')->nullable();
             $table->text('description');
-            $table->text('images');
             $table->integer('price');
             $table->integer('stock');
+            $table->string('main_image_name', 250)->default('default_product.jpg');
+            $table->string('main_image_url', 250)->default('default_product.jpg');
+            $table->string('main_image_thumbnail_name', 250)->default('default_product.jpg');
+            $table->string('main_image_thumbnail_url', 250)->default('default_product.jpg');
             $table->string('slug')->unique();
             $table->timestamps();
         });

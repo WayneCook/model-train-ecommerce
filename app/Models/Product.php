@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+use App\imageRepositories\ImageRepository;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use App\Models\ProductImage;
+
 
 class Product extends Model
 {
+
     use CrudTrait;
 
     /*
@@ -16,6 +20,7 @@ class Product extends Model
     */
 
     protected $table = 'products';
+    public $with = ['images'];
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
@@ -36,6 +41,13 @@ class Product extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function images()
+    {
+
+       return $this->hasMany('App\Models\ProductImage', 'product_id');
+
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -53,4 +65,15 @@ class Product extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+    // public function setImagesAttribute($value)
+    // {
+    //     $attribute_name = "images";
+    //     $disk = "product_images";
+    //     $destination_path = "product/".$this->name;
+    //     $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+    // }
+
+
+
 }

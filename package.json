@@ -28,7 +28,10 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.7.0",
+        "bootstrap-fileinput": "^5.0.1",
+        "dropzone": "^5.5.1",
         "hover.css": "^2.3.2",
+        "jquery-ui": "^1.12.1",
         "paroller.js": "^1.4.6"
     }
 }
