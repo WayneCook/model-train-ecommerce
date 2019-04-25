@@ -35,11 +35,9 @@ class ProductImage extends Model
     public function saveProductImage($request, $id)
     {
 
-      
-
         $image = $request->main_image;
 
-        if ($image->store('product/'.$id, ['disk' => 'product_images'])) {
+        if ($image->store($id, ['disk' => 'product_images'])) {
 
           return $image;
 
