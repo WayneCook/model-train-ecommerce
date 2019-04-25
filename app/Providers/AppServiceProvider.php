@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\View;
-use App\Category;
+use App\Observers\ProductObserver;
+use App\Models\Product;
 use App\subCategory;
+use App\Category;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -29,5 +31,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $categories = Category::with('subCategories')->get();
         View::share('categories', $categories);
+
+        Product::observe(ProductObserver::class);        
+
     }
 }

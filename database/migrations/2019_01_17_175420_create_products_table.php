@@ -19,10 +19,9 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('price');
             $table->integer('stock');
-            $table->string('main_image_name', 250)->default('default_product.jpg');
-            $table->string('main_image_url', 250)->default('default_product.jpg');
-            $table->string('main_image_thumbnail_name', 250)->default('default_product.jpg');
-            $table->string('main_image_thumbnail_url', 250)->default('default_product.jpg');
+            $table->string('main_image', 250)->nullable();
+            $table->string('main_image_thumbnail', 250)->nullable();
+            $table->string('original_image_name', 250)->nullable();
             $table->string('slug')->unique();
             $table->timestamps();
         });

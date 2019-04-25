@@ -4,14 +4,17 @@ namespace App\Models;
 
 use App\imageRepositories\ImageRepository;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Backpack\CRUD\CrudTrait;
 use App\Models\ProductImage;
+use Illuminate\Http\Request;
 
 
 class Product extends Model
 {
 
     use CrudTrait;
+
 
     /*
     |--------------------------------------------------------------------------
@@ -34,6 +37,40 @@ class Product extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+
+    //Store image file to disc
+    public function storeProductImage(Request $request, $id)
+    {
+        $product = Product::find($id);
+        $image = $request->main_image;
+        $oldImageUrl = $id.'/'.$product->main_image;
+
+        if ($image->store($id, ['disk' => 'product_images'])) {
+
+            $this->deleteOldProductImage($oldImageUrl);
+            $this->saveProductImage($image, $product);
+        }
+
+    }
+
+    //Save image data in database
+    public function saveProductImage($storedImage, $product)
+    {
+
+        $product->main_image = $storedImage->hashName();
+        $product->main_image_thumbnail = $storedImage->hashName();
+        $product->original_image_name = $storedImage->getClientOriginalName();
+        $product->save();
+
+    }
+
+    //Delete old image file from disk
+    public function deleteOldProductImage($url)
+    {
+
+      Storage::disk('product_images')->delete($url);
+
+    }
 
     /*
     |--------------------------------------------------------------------------

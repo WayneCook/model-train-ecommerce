@@ -71,7 +71,7 @@ return [
 
         'product_images' => [
             'driver' => 'local',
-            'root' => public_path('images'),
+            'root' => public_path('images/product/'),
         ],
 
     ],

@@ -32,12 +32,12 @@ class ProductImage extends Model
     */
 
 
-    public function saveFileToDisk($request, $id)
+    public function saveProductImage($request, $id)
     {
 
-        $image = $request->main_image;
+      
 
-        $name = $image->getClientOriginalName();
+        $image = $request->main_image;
 
         if ($image->store('product/'.$id, ['disk' => 'product_images'])) {
 
@@ -46,17 +46,6 @@ class ProductImage extends Model
         }
 
         return false;
-    }
-
-    public function saveToDatabase($image, $id)
-    {
-
-        $image = new ProductImage;
-        $image->name = $name;
-        $image->path = "product/" . $id;
-        $image->product_id = $id;
-
-        $image->save();
     }
 
 

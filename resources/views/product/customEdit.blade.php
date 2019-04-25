@@ -1,20 +1,18 @@
 @extends('backpack::layout')
 
-@section('head')
-	<link href="{{ asset('css/dropzone/dropzone.css') }}" rel="stylesheet"/>
-	<script src="{{ asset('js/app.js') }}" defer></script>
+@push('after_styles')
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.2/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 	<style media="screen">
-	.dz-progress {
-		/* progress bar covers file name */
-		display: none !important;
+		.file-preview-image {
+  		width: 100%;
 		}
 
-		/* .dz-image img{
-			width: 100%;
-			height: 100%;
-		} */
+    .well {
+      display: none;
+    }
 	</style>
-	@endsection
+@endpush
 
 @section('header')
 	<section class="content-header">
@@ -31,11 +29,6 @@
 @endsection
 
 @section('content')
-
-
-	<h1>{{$crud->entry->id}}</h1>
-
-
 @if ($crud->hasAccess('list'))
 	<a href="{{ url($crud->route) }}" class="hidden-print"><i class="fa fa-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a>
 @endif
@@ -74,23 +67,10 @@
 		      <!-- load the view from the application if it exists, otherwise load the one in the package -->
 		      @if(view()->exists('vendor.backpack.crud.form_content'))
 		      	@include('vendor.backpack.crud.form_content', ['fields' => $fields, 'action' => 'edit'])
-
-					@else
+		      @else
 		      	@include('crud::form_content', ['fields' => $fields, 'action' => 'edit'])
 		      @endif
-
-
-
-					{{-- Custom image upload section --}}
-					<!-- IMPORTANT enctype attribute! -->
-
-
 		    </div><!-- /.box-body -->
-
-				<div class="dropzone" style="border:1px solid #000;">
-
-					<center> <h3 >Dropzone Sortable Demo</h3> </center>
-				</div>
 
             <div class="">
 
@@ -102,86 +82,48 @@
 	</div>
 </div>
 
+@push('after_scripts')
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.2/js/plugins/piexif.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.2/js/plugins/sortable.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.2/js/plugins/purify.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.2/js/fileinput.min.js"></script>
+  <!-- following theme script is needed to use the Font Awesome 5.x theme (`fas`) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.2/themes/fas/theme.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.2/js/locales/pt-BR.js"></script>
+  <script type="text/javascript">
 
+  $(document).ready(function(){
 
+    var uploadedImages = false;
 
-{{-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    if ("{{$crud->entry->main_image}}" != "") {
+      var uploadedImages = ['<img src="/images/product/{{ $crud->entry->id }}/{{ $crud->entry->main_image }}" class="file-preview-image" alt="Desert" title="Desert">'];
+    }
 
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    $(".fileInput").fileinput({
+      showUpload: false,
+			initialPreview: uploadedImages,
+      maxFileCount: 1,
+			initialPreviewConfig: [
+	    {
+        caption: "{{ $crud->entry->original_image_name }}",
+        url: '/image/delete', // server delete action
+        key: 100,
+        extra: {id: {{ $crud->entry->id }}}
+	    }],
+    });
 
-<script src="{{ asset('js/dropzone/dropzone.js') }}"></script> --}}
+    $(".fileInput").on("filepredelete", function() {
+       var abort = true;
+       if (confirm("Are you sure you want to delete this image?")) {
+           abort = false;
+       }
+       return abort; // you can also send any data/object that you can receive on `filecustomerror` event
+     });
+    })
+  </script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-{{-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> --}}
-{{-- <script src="{{ asset('js/sortable/sortable.js') }}"></script> --}}
-
-
-    {{-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> --}}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
-
-<script type="text/javascript">
-
-Dropzone.autoDiscover = false;
-
-// var mockFile = { name: 'sassdf.jpeg', size: 05, type: 'jpeg', url: 'https://66.media.tumblr.com/a1bd01cb09ee22123416dcb7e55870a5/tumblr_n0ii1mJabf1tr51jmo1_1280.jpg'};
-
-
-// var myDropzone = new Dropzone();
-
-var myDropzone = $(".dropzone").dropzone({
-	url: "/file/post",
-	autoProcessQueue: false,
-	init: function () {
-	    var mockFile = { name: 'sassdf.jpeg', size: 05, type: 'jpeg', url: '{{asset('images/product/default_product.jpg')}}'};
-			// Call the default addedfile event handler
-			this.emit("addedfile", mockFile);
-
-			// And optionally show the thumbnail of the file:
-			// this.emit("thumbnail", mockFile, mockFile.url);
-			// Or if the file on your server is not yet in the right
-			// size, you can let Dropzone download and resize it
-			// callback and crossOrigin are optional.
-			this.createThumbnailFromUrl(mockFile, mockFile.url);
-
-			// Make sure that there is no progress bar, etc...
-			this.emit("complete", mockFile);
-
-			// If you use the maxFiles option, make sure you adjust it to the
-			// correct amount:
-			var existingFileCount = 1; // The number of files already uploaded
-			// this.options.maxFiles = this.options.maxFiles - existingFileCount;
-	}
-
-});
-
-// Create the mock file:
-// var mockFile = { name: "Filename", size: 12345 };
-
-
-
-
-
-
-
-$(function(){
-		$(".dropzone").sortable({
-			 items:'.dz-preview',
-			 cursor: 'move',
-			 opacity: 0.5,
-			 containment: '.dropzone',
-			 distance: 20,
-			 tolerance: 'pointer'
-		});
-});
-
-
-
-
-
-</script>
-
-
-
+  @endpush
 @endsection

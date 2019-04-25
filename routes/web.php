@@ -33,7 +33,7 @@ Route::get('get-cart', 'CartController@getCart');
 
 Route::get('/{category}', 'CategoryController@index')->name('category');
 
-
+Route::post('image/delete', 'ImageController@delete');
 // Route::get('/{category}/{subCategory}', 'CategoryController@show')->name('search');
 
 Auth::routes();

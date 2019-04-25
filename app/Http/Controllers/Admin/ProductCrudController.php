@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 use App;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Repositories\ImageRepository;
-use App\Models\ProductImage;
-use App\Models\ImageFields;
 use App\Models\Product;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -22,12 +20,11 @@ use Backpack\CRUD\CrudPanel;
 class ProductCrudController extends CrudController
 {
 
-  private $productImage;
+    private $image;
 
     public function setup()
     {
 
-      $this->ProductImage = App::make(ProductImage::class);
 
         /*
         |--------------------------------------------------------------------------
@@ -42,12 +39,14 @@ class ProductCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/product');
         $this->crud->setEntityNameStrings('product', 'products');
 
+
         $this->crud->addField([
            'name' => 'name',
            'label' => 'Name',
            'type' => 'text',
            // 'tab' => 'Details'
         ], 'both');
+
 
         $this->crud->addField([
            'name' => 'description',
@@ -65,38 +64,31 @@ class ProductCrudController extends CrudController
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
 
+
         $this->crud->addField([
            'name' => 'main_image',
            'label' => 'Product Image',
            'type' => 'upload',
+
            'upload' => true,
            'attributes' => [
              'placeholder' => 'Some text when empty',
              'class' => 'fileInput',
            ],
-        ], 'create');
+        ], 'both');
 
     }
 
     public function store(StoreRequest $request)
     {
-        // your additional operations before save here
 
+        // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
 
         if ($request->hasFile('main_image')) {
 
-            $storedImage = $this->ProductImage->saveFileToDisk($request, $this->crud->entry->id);
-
-            if ($storedImage) {
-
-                $product = $this->crud->entry;
-                $product->main_image_name = $storedImage->hashName();
-                $product->main_image_thumbnail_name = $storedImage->hashName();
-                $product->save();
-
-            }
+            $this->crud->model->storeProductImage($request, $this->crud->entry->id);
       }
 
         // use $this->data['entry'] or $this->crud->entry
@@ -106,14 +98,17 @@ class ProductCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
 
-      dd($request);
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
+        // your additional operations after save here
 
         // $this->ImageRepository->test($request);
-        $this->ProductImage->saveFileToDisk($request);
+        if ($request->hasFile('main_image')) {
 
-        // your additional operations after save here
+            $this->crud->model->storeProductImage($request, $this->crud->entry->id);
+        }
+
+
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
