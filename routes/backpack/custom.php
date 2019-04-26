@@ -14,4 +14,6 @@ Route::group([
     CRUD::resource('product', 'ProductCrudController');
     CRUD::resource('productimage', 'ProductImageCrudController');
     CRUD::resource('image-fields', 'imageFieldsCrudController');
+    CRUD::resource('category', 'CategoryCrudController');
+    CRUD::resource('sub-category', 'SubCategoryCrudController');
 }); // this should be the absolute last line of this file
