@@ -20,9 +20,9 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->integer('stock');
             $table->string('main_image', 250)->nullable();
-            $table->string('main_image_thumbnail', 250)->nullable();
             $table->string('original_image_name', 250)->nullable();
             $table->string('slug')->unique();
+            $table->unique('name');
             $table->timestamps();
         });
     }

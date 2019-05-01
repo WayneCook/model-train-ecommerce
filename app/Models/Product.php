@@ -5,16 +5,17 @@ namespace App\Models;
 use App\imageRepositories\ImageRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 use Backpack\CRUD\CrudTrait;
-use App\Models\ProductImage;
-use Illuminate\Http\Request;
+use App\Traits\Sanitizer;
+use Image;
 
 
 class Product extends Model
 {
 
     use CrudTrait;
-
+    use Sanitizer;
 
     /*
     |--------------------------------------------------------------------------
@@ -27,9 +28,8 @@ class Product extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ["name","categories_id","sub_categories_id","brand","scale","description","images","price","stock","slug","created_at","updated_at"];
-
-    // protected $hidden = [];
+    protected $fillable = ["name","categories_id","sub_categories_id","brand","scale","description","main_image","price","stock","created_at","updated_at"];
+    protected $hidden = ["original_image_name","slug"];
     // protected $dates = [];
 
     /*
@@ -38,39 +38,6 @@ class Product extends Model
     |--------------------------------------------------------------------------
     */
 
-    //Store image file to disc
-    public function storeProductImage(Request $request, $id)
-    {
-        $product = Product::find($id);
-        $image = $request->main_image;
-        $oldImageUrl = $id.'/'.$product->main_image;
-
-        if ($image->store($id, ['disk' => 'product_images'])) {
-
-            $this->deleteOldProductImage($oldImageUrl);
-            $this->saveProductImage($image, $product);
-        }
-
-    }
-
-    //Save image data in database
-    public function saveProductImage($storedImage, $product)
-    {
-
-        $product->main_image = $storedImage->hashName();
-        $product->main_image_thumbnail = $storedImage->hashName();
-        $product->original_image_name = $storedImage->getClientOriginalName();
-        $product->save();
-
-    }
-
-    //Delete old image file from disk
-    public function deleteOldProductImage($url)
-    {
-
-      Storage::disk('product_images')->delete($url);
-
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -80,9 +47,12 @@ class Product extends Model
 
     public function images()
     {
-
        return $this->hasMany('App\Models\ProductImage', 'product_id');
+    }
 
+    public function category()
+    {
+       return $this->belongsTo('App\Models\Category','categories_id');
     }
 
     /*
@@ -103,14 +73,23 @@ class Product extends Model
     |--------------------------------------------------------------------------
     */
 
-    // public function setImagesAttribute($value)
-    // {
-    //     $attribute_name = "images";
-    //     $disk = "product_images";
-    //     $destination_path = "product/".$this->name;
-    //     $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
-    // }
+    public function setMainImageAttribute($value)
+    {
+        $attribute_name = "main_image";
+        $image_disk     = "product_images";
+        $thumbnail_disk = 'thumbnails';
+        // Set original file name attribute
+        $originalFileName = $this->clean($value->getClientOriginalName());
 
+        $this->original_image_name = $originalFileName;
 
+        // Save image file to disk and set image attribute
+        $this->customUploadFileToDisk($value, $attribute_name, $image_disk, $thumbnail_disk);
+    }
 
+    public function setNameAttribute($name)
+    {
+        $this->attributes['name'] = $name;
+        $this->attributes['slug'] = str_slug($name);
+    }
 }

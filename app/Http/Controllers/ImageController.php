@@ -15,17 +15,18 @@ class ImageController extends Controller
         $this->product = $product;
     }
 
-    public function delete(Request $request){
+
+        public function deleteOldProductImage(Request $request){
 
         if ($product = $this->product::find($request->id)) {
 
             $image = $product->main_image;
-            $image_url = $product->id . '/' . $product->main_image;
-            Storage::disk('product_images')->delete($image_url);
+
+            Storage::disk('product_images')->delete($image);
+            Storage::disk('thumbnails')->delete($image);
 
             $oldImage = $this->product->find($request->id);
-            $oldImage->main_image = '';
-            $oldImage->main_image_thumbnail = '';
+            $oldImage->main_image = null;
             $oldImage->save();
 
             return json_encode($request->id);

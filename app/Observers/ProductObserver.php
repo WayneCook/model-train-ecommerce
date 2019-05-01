@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Observers;
-use Storage;
+use Illuminate\Http\Request;
+use App\Traits\Sanitizer;
 use App\Models\Product;
-use App\Models\ProductImage;
+use Storage;
+
 
 class ProductObserver
 {
+
+    use Sanitizer;
+
     /**
      * Handle the product "created" event.
      *
@@ -15,6 +20,7 @@ class ProductObserver
      */
     public function created(Product $product)
     {
+        
 
     }
 
@@ -26,7 +32,8 @@ class ProductObserver
      */
     public function updated(Product $product)
     {
-        //
+
+
     }
 
     /**
@@ -38,7 +45,10 @@ class ProductObserver
     public function deleted(Product $product)
     {
 
-      Storage::disk('product_images')->deleteDirectory($product->id);
+      // Delete product images
+      $image = $product->main_image;
+      Storage::disk('product_images')->delete($image);
+      Storage::disk('thumbnails')->delete($image);
 
     }
 

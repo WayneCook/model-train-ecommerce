@@ -99,7 +99,7 @@
     var uploadedImages = false;
 
     if ("{{$crud->entry->main_image}}" != "") {
-      var uploadedImages = ['<img src="/images/product/{{ $crud->entry->id }}/{{ $crud->entry->main_image }}" class="file-preview-image" alt="Desert" title="Desert">'];
+      var uploadedImages = ['<img src="/images/product/{{ $crud->entry->main_image }}" class="file-preview-image" alt="Desert" title="Desert">'];
     }
 
     $(".fileInput").fileinput({
@@ -109,7 +109,7 @@
 			initialPreviewConfig: [
 	    {
         caption: "{{ $crud->entry->original_image_name }}",
-        url: '/image/delete', // server delete action
+        url: '/image/deleteOldProductImage', // server delete action
         key: 100,
         extra: {id: {{ $crud->entry->id }}}
 	    }],
