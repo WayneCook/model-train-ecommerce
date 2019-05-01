@@ -6,9 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class SubCategory extends Model
 {
-    public function products($category, $subCategory)
+
+
+
+
+    //
+    public function products()
     {
-      
-        return $this->hasMany('App\Products', 'sub_categories_id');
+
+        return $this->belongsTo('App\Products', 'sub_categories_id');
+    }
+
+    public function category()
+    {
+
+        return $this->belongsTo('App\Category', 'categories_id');
     }
 }

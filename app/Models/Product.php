@@ -55,6 +55,11 @@ class Product extends Model
        return $this->belongsTo('App\Models\Category','categories_id');
     }
 
+    public function subCategory()
+    {
+       return $this->belongsTo('App\Models\SubCategory','sub_categories_id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

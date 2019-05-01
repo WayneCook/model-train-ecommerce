@@ -43,6 +43,14 @@ class ProductCrudController extends CrudController
         $this->crud->setEntityNameStrings('product', 'products');
 
 
+        $this->crud->addField([
+           'name' => 'name',
+           'label' => 'Name',
+           'type' => 'text',
+           // 'tab' => 'Details'
+        ], 'both');
+
+
         $this->crud->addField([  // Select
            'label' => "Category",
            'type' => 'select',
@@ -53,12 +61,17 @@ class ProductCrudController extends CrudController
 
         ]);
 
-        $this->crud->addField([
-           'name' => 'name',
-           'label' => 'Name',
-           'type' => 'text',
-           // 'tab' => 'Details'
-        ], 'both');
+        $this->crud->addField([  // Select
+           'label' => "Sub-Category",
+           'type' => 'select',
+           'name' => 'sub_categories_id', // the db column for the foreign key
+           'entity' => 'subCategory', // the method that defines the relationship in your Model
+           'attribute' => 'name', // foreign key attribute that is shown to user
+           'model' => "App\Models\SubCategory",
+
+        ]);
+
+
 
 
         $this->crud->addField([
