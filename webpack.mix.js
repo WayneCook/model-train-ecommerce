@@ -11,17 +11,18 @@ const mix = require('laravel-mix');
  |
  */
 
+
  mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
-    .copy('node_modules/dropzone/dist/dropzone.js', 'public/js/dropzone')
-    .copy('node_modules/dropzone/dist/dropzone.css', 'public/css/dropzone')
-    .copy('node_modules/jquery-ui/ui/widgets/sortable.js', 'public/js/sortable')
+    // .copy('node_modules/dropzone/dist/dropzone.js', 'public/js/dropzone')
+    // .copy('node_modules/dropzone/dist/dropzone.css', 'public/css/dropzone')
+    // .copy('node_modules/jquery-ui/ui/widgets/sortable.js', 'public/js/sortable')
     .browserSync({
      proxy: 'http://127.0.0.1:8000/',
      browser: 'chrome'
    });
-
+   mix.copyDirectory('node_modules/vue-number-input-spinner', 'resources/js/components/vue-number-input-spinner');
    mix.copyDirectory('resources/css', 'public/css');
-   mix.copyDirectory('resources/flaticons', 'public/flaticons');
-   mix.copyDirectory('resources/icons', 'public/icons');
-   mix.copyDirectory('resources/images', 'public/images');
+   // mix.copyDirectory('resources/flaticons', 'public/flaticons');
+   // mix.copyDirectory('resources/icons', 'public/icons');
+   // mix.copyDirectory('resources/images', 'public/images');

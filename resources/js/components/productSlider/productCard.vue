@@ -6,7 +6,7 @@
       <span @click='viewDetails()' class="icon-1 flaticons flaticon-spy"></span>
       <span class="icon-2 flaticons flaticon-heart"></span>
       <span class="icon-3 flaticons flaticon-spy"></span>
-      <img class="img img-responsive full-width" alt="Card image cap" :src='"images/default_product.jpg"'>
+      <img class="img img-responsive full-width productImage" alt="Card image cap" :src="productImage">
     </div>
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
@@ -33,7 +33,25 @@
         console.log(this.product);
       },
       addToCart(){
-        this.$mainEventBus.$emit('addToCartEvent', this.product.id);
+
+
+        if (this.product.stock >= 1) {
+
+          this.$mainEventBus.$emit('addToCartEvent', this.product.id);
+        }
+
+      }
+    },
+    computed: {
+      productImage: function () {
+
+        switch(this.product.main_image) {
+          case null:
+            return 'images/product/default_product.jpg';
+            break;
+          default:
+            return 'images/product/' + this.product.main_image;
+        }
       }
     }
   }
@@ -151,6 +169,10 @@ p.item-price {
 
 .image span:hover::before {
   color: hsla(174, 100%, 30%, 1);
+}
+
+.productImage {
+
 }
 
 .image img {

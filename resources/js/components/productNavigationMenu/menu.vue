@@ -2,7 +2,7 @@
   <nav class="navbar-custom">
     <div>
       <ul class="list">
-        <menu-list :fontcolor='fontcolor' :category='category' v-for='(category, index) in categories'></menu-list>
+        <menu-list :fontcolor='fontcolor' :category='category' v-for='(category, index) in categories' v-bind:key="category.id"></menu-list>
       </ul>
     </div>
     <slot></slot>

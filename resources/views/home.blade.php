@@ -5,7 +5,7 @@
 <div class="small-nav">
   <div class="small-nav-wrapper">
 
-    <span class="flaticon-online-shopping-cart small-menu"><span data-count='0' class="cartIcon"></span></span>
+    <cart-icon></cart-icon>
   </div>
   <nav-menu :fontcolor='"hsla(210, 57%, 20%, 0.82)"' :categories="{{ $categories }}" class="menu small-menu">
   </nav-menu>
@@ -31,7 +31,9 @@
   </div>
 </div>
 
-{{-- <shopping-cart></shopping-cart> --}}
+<shopping-cart>
+  {{-- <template slot="emptyCartImage"></template> --}}
+</shopping-cart>
 
 <product-slider :heading='"Featured Products"' :products='{{ $featuredProducts }}'></product-slider>
 

@@ -25,7 +25,9 @@ Route::get('nav', 'NavigationController@index')->name('nav');
 
 //Cart routes
 Route::get('add-to-cart/{id}/{count}', 'CartController@addToCart')->name('product.addToCart');
+Route::get('update-cart/{id}/{count}', 'CartController@updateCart')->name('product.updateCart');
 Route::get('remove-from-cart/{id}/{count}', 'CartController@removeFromCart')->name('product.removeFromCart');
+Route::get('delete-item/{id}', 'CartController@deleteItem')->name('product.delete');
 Route::get('cart-reset', 'CartController@cartReset');
 Route::get('get-cart', 'CartController@getCart');
 

@@ -6,7 +6,7 @@
 
     <div class="fpSection row">
 
-      <product-card v-for='(product, index) in products' :product='product'></product-card>
+      <product-card v-for='(product, index) in products' :product='product' v-bind:key="product.id"></product-card>
 
     </div>
 

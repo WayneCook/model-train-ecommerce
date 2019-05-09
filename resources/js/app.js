@@ -24,6 +24,8 @@ Vue.component('menu-list', require('./components/productNavigationMenu/menuList.
 Vue.component('product-slider', require('./components/productSlider/products.vue').default);
 Vue.component('video-modal', require('./components/videoModal/modal.vue').default);
 Vue.component('shopping-cart', require('./components/cart/cartComponent.vue').default);
+Vue.component('product', require('./components/cart/productComponent.vue').default);
+Vue.component('cart-icon', require('./components/cart/cartIcon.vue').default);
 
 Vue.prototype.$mainEventBus = new Vue(); // Global event bus
 

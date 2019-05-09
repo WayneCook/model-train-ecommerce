@@ -12,26 +12,27 @@
     "devDependencies": {
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
-        "browser-sync": "^2.24.4",
+        "browser-sync": "^2.26.5",
         "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^5.1",
-        "jquery": "^3.2",
-        "laravel-mix": "^4.0.7",
+        "jquery": "^3.4.1",
+        "laravel-mix": "^4.0.15",
         "lodash": "^4.17.5",
-        "node-sass": "^4.11.0",
-        "popper.js": "^1.12",
+        "node-sass": "^4.12.0",
+        "popper.js": "^1.15.0",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
+        "sass": "^1.19.0",
         "sass-loader": "^7.1.0",
-        "vue": "^2.5.17",
-        "vue-template-compiler": "^2.5.22"
+        "vue": "^2.6.10",
+        "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.7.0",
-        "bootstrap-fileinput": "^5.0.1",
+        "@fortawesome/fontawesome-free": "^5.8.1",
+        "bootstrap-fileinput": "^5.0.2",
         "dropzone": "^5.5.1",
         "hover.css": "^2.3.2",
         "jquery-ui": "^1.12.1",
-        "paroller.js": "^1.4.6"
+        "paroller.js": "^1.4.6",
+        "vue-number-input-spinner": "^2.2.0"
     }
 }

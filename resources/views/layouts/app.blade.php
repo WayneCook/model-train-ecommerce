@@ -46,19 +46,20 @@
       <div class="logo-container">
         <div class="wrapper">
 
-        <div>
-        <span class="flaticon-magnifying-glass-browser"></span>
-      </div>
+          <div>
+            <span class="flaticon-magnifying-glass-browser"></span>
+          </div>
 
-        <div class="logo-wrapper">
-          <a class="brand" href="{{ url('/') }}">
-          <img class="navLogo" src="{{ asset('images/train_logo.svg') }}" alt="">
-          </a>
+          <div class="logo-wrapper">
+            <a class="brand" href="{{ url('/') }}">
+            <img class="navLogo" src="{{ asset('images/train_logo.svg') }}" alt="">
+            </a>
+          </div>
+
+          <div>
+            <cart-icon></cart-icon>
+          </div>
         </div>
-        <div>
-        <span class="flaticon-online-shopping-cart main-nav"><span data-count='0' class="cartIcon"></span></span>
-      </div>
-      </div>
       </div>
 
       <nav-menu :fontcolor='"hsl(210, 39%, 92%)"' :categories="{{ $categories }}" class="main-menu"></nav-menu>
