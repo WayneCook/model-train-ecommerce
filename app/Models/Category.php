@@ -41,7 +41,7 @@ class Category extends Model
         return $this->hasMany('App\Models\SubCategory', 'categories_id');
     }
 
-  
+
 
 
     /*
@@ -61,4 +61,24 @@ class Category extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+    public function setMainImageAttribute($value)
+    {
+        $attribute_name = "image";
+        $image_disk     = "product_images";
+        $thumbnail_disk = 'thumbnails';
+        // Set original file name attribute
+        $originalFileName = $this->clean($value->getClientOriginalName());
+
+        $this->original_image_name = $originalFileName;
+
+        // Save image file to disk and set image attribute
+        $this->customUploadFileToDisk($value, $attribute_name, $image_disk, $thumbnail_disk);
+    }
+
+    public function setNameAttribute($name)
+    {
+        $this->attributes['name'] = $name;
+        $this->attributes['slug'] = str_slug($name);
+    }
 }
