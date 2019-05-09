@@ -20,7 +20,6 @@ use Backpack\CRUD\CrudPanel;
 class ProductCrudController extends CrudController
 {
 
-    private $image;
 
     public function setup()
     {
@@ -129,17 +128,10 @@ class ProductCrudController extends CrudController
     public function store(StoreRequest $request)
     {
 
-
-        // Set slug attribute
-        // $request->slug = str_slug($request->name);
-
-
         // your additional operations before save here
-
 
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
-
 
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
@@ -151,8 +143,6 @@ class ProductCrudController extends CrudController
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
-
-
 
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
