@@ -25,9 +25,6 @@ class ProductCrudController extends CrudController
     public function setup()
     {
 
-
-
-
         // $this->crud->enableReorder('attribute_name', 0);
         /*
         |--------------------------------------------------------------------------
@@ -50,7 +47,6 @@ class ProductCrudController extends CrudController
            // 'tab' => 'Details'
         ], 'both');
 
-
         $this->crud->addField([  // Select
            'label' => "Category",
            'type' => 'select',
@@ -58,7 +54,6 @@ class ProductCrudController extends CrudController
            'entity' => 'category', // the method that defines the relationship in your Model
            'attribute' => 'name', // foreign key attribute that is shown to user
            'model' => "App\Models\Category",
-
         ]);
 
         $this->crud->addField([  // Select
@@ -68,11 +63,7 @@ class ProductCrudController extends CrudController
            'entity' => 'subCategory', // the method that defines the relationship in your Model
            'attribute' => 'name', // foreign key attribute that is shown to user
            'model' => "App\Models\SubCategory",
-
         ]);
-
-
-
 
         $this->crud->addField([
            'name' => 'description',
@@ -80,7 +71,6 @@ class ProductCrudController extends CrudController
            'type' => 'summernote',
            // 'tab' => 'Description'
         ], 'both');
-
 
 
         // TODO: remove setFromDb() and manually define Fields and Columns
@@ -112,8 +102,15 @@ class ProductCrudController extends CrudController
             'model' => "App\Models\Category", // foreign key model
          ]);
 
+         $this->crud->addColumn([
+            'name' => 'description',
+            'visibleInTable' => false,
+         ]);
 
-
+        $this->crud->addColumn([
+           'name' => 'sub_categories_id',
+           'visibleInTable' => false,
+        ]);
 
         $this->crud->addField([
            'name' => 'main_image',
@@ -125,10 +122,6 @@ class ProductCrudController extends CrudController
              'class' => 'fileInput',
            ],
         ], 'both');
-
-
-
-
 
 
     }
