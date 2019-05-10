@@ -36,6 +36,7 @@ Route::get('get-cart', 'CartController@getCart');
 Route::get('/{category}', 'CategoryController@index')->name('category');
 
 Route::post('image/deleteOldProductImage', 'ImageController@deleteOldProductImage');
+Route::post('image/deleteOldCategoryImage', 'ImageController@deleteOldCategoryImage');
 // Route::get('/{category}/{subCategory}', 'CategoryController@show')->name('search');
 
 Auth::routes();

@@ -139,7 +139,7 @@ export default {
   font-size: 24px;
   font-weight: 600;
   text-align: center;
-  margin-top: 38px;
+  margin-top: 10px;
   color: hsla(210, 57%, 20%, 0.78);
 }
 

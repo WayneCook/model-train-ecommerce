@@ -38,7 +38,6 @@ class ProductCrudController extends CrudController
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/product');
         $this->crud->setEntityNameStrings('product', 'products');
 
-
         $this->crud->addField([
            'name' => 'name',
            'label' => 'Name',

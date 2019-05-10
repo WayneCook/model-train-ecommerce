@@ -13,8 +13,8 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->integer('category_id');
-            $table->text('image');
+            $table->text('image', 250)->nullable();
+            $table->text('original_image_name', 250)->nullable();
             $table->string('slug')->unique();
             $table->timestamps();
         });

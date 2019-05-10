@@ -23,6 +23,10 @@ class CategoryCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
+
+        $this->crud->setEditView('category/customEdit');
+        $this->crud->setCreateView('category/customCreate');
+
         $this->crud->setModel('App\Models\Category');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/category');
         $this->crud->setEntityNameStrings('category', 'categories');
@@ -33,12 +37,27 @@ class CategoryCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
+
         // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->setFromDb();
 
         // add asterisk for fields that are required in CategoryRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
+
+        $this->crud->addField([
+           'name' => 'image',
+           'label' => 'Category Image',
+           'type' => 'upload',
+           'upload' => true,
+           'attributes' => [
+             'placeholder' => 'Some text when empty',
+             'class' => 'fileInput',
+           ],
+        ], 'both');
+
+
+
     }
 
     public function store(StoreRequest $request)

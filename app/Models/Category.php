@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 use App\Models\SubCategory;
+use App\Traits\Sanitizer;
 
 class Category extends Model
 {
     use CrudTrait;
+    use Sanitizer;
 
     /*
     |--------------------------------------------------------------------------
@@ -20,8 +22,8 @@ class Category extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name', 'description', 'category_id', 'image', 'slug'];
-    // protected $hidden = [];
+    protected $fillable = ['name', 'description', 'category_id', 'image'];
+    protected $hidden = ['slug'];
     // protected $dates = [];
 
     /*
@@ -62,10 +64,11 @@ class Category extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function setMainImageAttribute($value)
+    public function setImageAttribute($value)
     {
+
         $attribute_name = "image";
-        $image_disk     = "product_images";
+        $image_disk     = "category_images";
         $thumbnail_disk = 'thumbnails';
         // Set original file name attribute
         $originalFileName = $this->clean($value->getClientOriginalName());
