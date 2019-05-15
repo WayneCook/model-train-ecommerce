@@ -13,9 +13,10 @@ class CreateSubCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('categories_id');
-            $table->text('image')->nullable();
-            $table->text('thumbnail')->nullable();
+            $table->text('thumbnail', 250)->nullable();
             $table->text('description')->nullable();
+            $table->text('image', 250)->nullable();
+            $table->text('original_image_name', 250)->nullable();
             $table->string('slug')->unique();
             $table->timestamps();
         });

@@ -5,9 +5,11 @@ namespace App\Providers;
 use Illuminate\Support\Facades\View;
 use App\Observers\ProductObserver;
 use App\Observers\CategoryObserver;
+use App\Observers\SubCategoryObserver;
 use App\Models\Product;
 use App\Models\Category;
-use App\subCategory;
+use App\Models\SubCategory;
+
 
 use Illuminate\Support\ServiceProvider;
 
@@ -35,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
 
         Product::observe(ProductObserver::class);
         Category::observe(CategoryObserver::class);
+        SubCategory::observe(SubCategoryObserver::class);
 
     }
 }

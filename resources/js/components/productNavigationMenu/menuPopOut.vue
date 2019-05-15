@@ -61,6 +61,7 @@
 
 .dropDownSection li a {
   color: black;
+  font-size: 14px;
 }
 
 </style>

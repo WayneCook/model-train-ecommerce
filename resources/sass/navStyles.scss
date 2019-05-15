@@ -18,24 +18,6 @@ img.navLogo {
   width: 100%;
 }
 
-// span.cartIcon {
-//   position: absolute;
-//   font-size: 66%;
-//   min-width: 20px;
-//   height: 20px;
-//   color: white;
-//   font-weight: 600;
-//   align-items: center;
-//   margin: 0px;
-//   bottom: 28px;
-//   line-height: 1px;
-//   right: -14px;
-//   border-radius: 20px;
-//   display: flex;
-//   justify-content: center;
-//   padding: 5px;
-//   background-color: #00998a;
-// }
 
 .main-nav .cartIcon[data-count]:after {
 
@@ -178,11 +160,11 @@ ul.list {
 
 .list li {
   display: inline-block;
-  font-size: 12px;
+  font-size: 14px;
   margin-right: 44px;
   letter-spacing: .5px;
   font-weight: 600;
-  padding: 11px;
+  padding: 12px;
   text-transform: uppercase;
   transition: all .15s ease;
 }
@@ -217,7 +199,7 @@ nav.navbar-custom.menu.small-menu li {
 
 .navbar-custom.main-menu .dropDownSection {
   position: absolute;
-  top: 41px;
+  top: 43px;
   z-index: 9999;
   background-color: hsla(0, 0%, 100%, 1);
   width: 100%;
@@ -227,12 +209,12 @@ nav.navbar-custom.menu.small-menu li {
   flex-direction: row;
   justify-content: center;
   box-shadow: 0px 3px 8px -3px #00000078;
-  border-top: 4px solid #00998a;
+  border-top: 2px solid #00998a;
 }
 
 .navbar-custom.small-menu .dropDownSection {
     position: absolute;
-    top: 55px;
+    top: 57px;
     z-index: 9999;
     background-color: hsla(0, 0%, 100%, 1);
     width: 100%;

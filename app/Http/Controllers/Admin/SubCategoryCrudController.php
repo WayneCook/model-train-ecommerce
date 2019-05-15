@@ -35,9 +35,13 @@ class SubCategoryCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
+        $this->crud->setEditView('sub_category/customEdit');
+        $this->crud->setCreateView('sub_category/customCreate');
+
         $this->crud->setModel('App\Models\SubCategory');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/sub-category');
         $this->crud->setEntityNameStrings('subcategory', 'sub categories');
+
 
         /*
         |--------------------------------------------------------------------------
@@ -51,6 +55,20 @@ class SubCategoryCrudController extends CrudController
         // add asterisk for fields that are required in SubCategoryRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
+
+
+        $this->crud->addField([
+           'name' => 'image',
+           'label' => 'Image',
+           'type' => 'upload',
+           'upload' => true,
+           'attributes' => [
+             'placeholder' => 'Some text when empty',
+             'class' => 'fileInput',
+           ],
+        ], 'both');
+
+
     }
 
     public function store(StoreRequest $request)

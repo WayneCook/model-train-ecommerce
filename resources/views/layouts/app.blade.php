@@ -24,14 +24,7 @@
       width: 100%;
     }
 
-    body {
 
-    }
-
-    .container-full {
-      /* margin: 0 auto; */
-      /* width: 100%; */
-    }
     </style>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('flatIcons/flaticon.css') }}" rel="stylesheet">
@@ -64,13 +57,98 @@
 
       <nav-menu :fontcolor='"hsl(210, 39%, 92%)"' :categories="{{ $categories }}" class="main-menu"></nav-menu>
 
-
-      <!-- <menu-pop-out></menu-pop-out> -->
     </div>
       <main class="main-container">
           @yield('content')
       </main>
   </div>
+
+  <div class="footer-wrapper">
+    <div class="logo-wrapper">
+
+      <img class="footerLogo" src="{{ asset('images/train_logo.svg') }}" alt="">
+    </div>
+  <div class="footer-inner">
+
+  <footer class="footer-container row">
+    <div class="col-lg col-md-6 col-sm-12">
+      <section class="footer-section">
+        <h1>Dimitri Trains</h1>
+        <ul>
+          <li><p>1888-248-4209</p>
+          <p>1044 Main ST<br>
+          Monrovia, Ca 91016</p></li>
+          <li><a href="###">Contact Us</a></li>
+          <li><p>2019 Dimitri Train. All Rights Reserved.</p></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col-lg col-md-6 col-sm-12">
+      <section class="footer-section">
+        <h1>Who We Are</h1>
+        <ul>
+          <li>
+              <a href="###">Gift Certificates</a>
+          </li>
+          <li>
+              <a href="###">Shipping &amp; Returns</a>
+          </li>
+          <li>
+              <a href="###">Order Status</a>
+          </li>
+          <li>
+              <a href="###">Privacy Policy</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col-lg col-md-6 col-sm-12">
+
+      <section class="footer-section">
+        <h1>Who We Are</h1>
+        <ul>
+          <li>
+              <a href="###">Gift Certificates</a>
+          </li>
+          <li>
+              <a href="###">Shipping &amp; Returns</a>
+          </li>
+          <li>
+              <a href="###">Order Status</a>
+          </li>
+          <li>
+              <a href="###">Privacy Policy</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col-lg col-md-6 col-sm-12">
+      <section class="footer-section">
+        <h1>Who We Are</h1>
+        <ul>
+          <li>
+              <a href="###">Gift Certificates</a>
+          </li>
+          <li>
+              <a href="###">Shipping &amp; Returns</a>
+          </li>
+          <li>
+              <a href="###">Order Status</a>
+          </li>
+          <li>
+              <a href="###">Privacy Policy</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+  </footer>
+  </div>
+  </div>
+
 
   @yield('scripts')
 

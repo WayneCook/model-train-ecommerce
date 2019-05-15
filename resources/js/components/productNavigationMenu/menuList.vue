@@ -53,13 +53,6 @@ ul.list {
   box-shadow: inset 0px -5px 0px 0px #EC4036;
 }
 
-/* .fa-angle-down:before {
-  color: hsl(210, 39%, 92%);
-}
-
-.iconActive:before {
-  color: #009485;
-} */
 
 .underline {
   width: 100%;

@@ -40,8 +40,7 @@
 
   h1 {
     color: hsla(210, 57%, 20%, 0.82);
-    font-size: 28px;
-    font-weight: 700;
+    font-weight: 800;
   }
 
   .fpSection {

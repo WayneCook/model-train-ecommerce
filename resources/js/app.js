@@ -18,6 +18,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('nav-menu', require('./components/productNavigationMenu/menu.vue').default);
 Vue.component('menu-pop-out', require('./components/productNavigationMenu/menuPopOut.vue').default);
+Vue.component('category-component', require('./components/categoryComponent/categoryComponent.vue').default);
 Vue.component('category-card', require('./components/categoryComponent/categoryCard.vue').default);
 Vue.component('user-navigation', require('./components/userNavigationMenu/menu.vue').default);
 Vue.component('menu-list', require('./components/productNavigationMenu/menuList.vue').default);

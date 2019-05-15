@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\SubCategory;
 
 class ImageController extends Controller
 {
@@ -42,6 +43,24 @@ class ImageController extends Controller
             $category->image = null;
             $category->original_image_name = null;
             $category->save();
+
+            return json_encode($request->id);
+        }
+    }
+
+    public function deleteOldSubCategoryImage(Request $request)
+    {
+
+        if ($subCategory = SubCategory::find($request->id)) {
+
+            $image = $subCategory->image;
+
+            Storage::disk('sub_category_images')->delete($image);
+            Storage::disk('thumbnails')->delete($image);
+
+            $subCategory->image = null;
+            $subCategory->original_image_name = null;
+            $subCategory->save();
 
             return json_encode($request->id);
         }

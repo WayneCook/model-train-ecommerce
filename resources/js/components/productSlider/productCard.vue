@@ -12,7 +12,7 @@
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="item-price">{{ "$" + product.price.toFixed(2) }}</p>
       <form v-on:submit.prevent class="" :action="'add-to-cart/' + product.id +'/1'" method="get">
-        <button @click='addToCart()' class="hvr-outline-in btn-custom-green">ADD TO CART</button>
+        <button @click='addToCart()' class="hvr-outline-in-blue btn-custom-green-blue">ADD TO CART</button>
       </form>
     </div>
   </div>
@@ -58,9 +58,6 @@
 </script>
 
 <style scoped>
-* {
-  color: hsla(211, 11%, 21%, 1);
-}
 
 .card-title {
   height: 70px;

@@ -70,6 +70,11 @@ return [
             'root'   => public_path() . '/images/category',
         ],
 
+        'sub_category_images' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/images/sub_category',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

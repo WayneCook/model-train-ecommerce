@@ -31,9 +31,7 @@
   </div>
 </div>
 
-<shopping-cart>
-  {{-- <template slot="emptyCartImage"></template> --}}
-</shopping-cart>
+<shopping-cart></shopping-cart>
 
 <product-slider :heading='"Featured Products"' :products='{{ $featuredProducts }}'></product-slider>
 
@@ -64,8 +62,6 @@
 <div class="info-section">
 
   <section class="row info-section-container">
-
-    {{-- <span class="flaticons flaticon-spy"></span> --}}
 
     <div class="col-lg col-md-6 col-sm-12">
       <div class="info-box">
@@ -156,96 +152,6 @@
 
 <product-slider :heading='"On Sale Now"' :products='{{ $featuredProducts }}'></product-slider>
 
-<div class="footer-wrapper">
-  <div class="logo-wrapper">
-
-    <img class="footerLogo" src="{{ asset('images/train_logo.svg') }}" alt="">
-  </div>
-<div class="footer-inner">
-
-<footer class="footer-container row">
-  <div class="col-lg col-md-6 col-sm-12">
-    <section class="footer-section">
-      <h1>Dimitri Trains</h1>
-      <ul>
-        <li><p>1888-248-4209</p>
-        <p>1044 Main ST<br>
-        Monrovia, Ca 91016</p></li>
-        <li><a href="###">Contact Us</a></li>
-        <li><p>2019 Dimitri Train. All Rights Reserved.</p></li>
-      </ul>
-    </section>
-  </div>
-
-  <div class="col-lg col-md-6 col-sm-12">
-    <section class="footer-section">
-      <h1>Who We Are</h1>
-      <ul>
-        <li>
-            <a href="###">Gift Certificates</a>
-        </li>
-        <li>
-            <a href="###">Shipping &amp; Returns</a>
-        </li>
-        <li>
-            <a href="###">Order Status</a>
-        </li>
-        <li>
-            <a href="###">Privacy Policy</a>
-        </li>
-      </ul>
-    </section>
-  </div>
-
-  <div class="col-lg col-md-6 col-sm-12">
-
-    <section class="footer-section">
-      <h1>Who We Are</h1>
-      <ul>
-        <li>
-            <a href="###">Gift Certificates</a>
-        </li>
-        <li>
-            <a href="###">Shipping &amp; Returns</a>
-        </li>
-        <li>
-            <a href="###">Order Status</a>
-        </li>
-        <li>
-            <a href="###">Privacy Policy</a>
-        </li>
-      </ul>
-    </section>
-  </div>
-
-  <div class="col-lg col-md-6 col-sm-12">
-    <section class="footer-section">
-      <h1>Who We Are</h1>
-      <ul>
-        <li>
-            <a href="###">Gift Certificates</a>
-        </li>
-        <li>
-            <a href="###">Shipping &amp; Returns</a>
-        </li>
-        <li>
-            <a href="###">Order Status</a>
-        </li>
-        <li>
-            <a href="###">Privacy Policy</a>
-        </li>
-      </ul>
-    </section>
-  </div>
-
-</footer>
-</div>
-</div>
-
-
-
-
-
 @endsection
 
 @section('scripts')
@@ -270,9 +176,6 @@
 
       }
     }
-
-
-
 
   </script>
 
