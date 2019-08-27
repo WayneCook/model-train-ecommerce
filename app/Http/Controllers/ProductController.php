@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use TCG\Voyager\Models\Page;
+use App\Category;
+use App\SubCategory;
 use App\Product;
 
 class ProductController extends Controller
 {
 
-    public function index()
+    public function index(Category $category, SubCategory $subCategory): object
     {
-        $pages = Page::all();
-        $products = Product::all();
-        return view('product/index', ['products' => $products, 'pages' => $pages]);
+
+        return view('product/index', ['category' => $category, 'subCategory' => $subCategory]);
+        // return view('product/index', ['products' => $products->advancedFilter()]);
     }
 
 

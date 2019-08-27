@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Product;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-      factory(Product::class, 10)->create();
+    //   factory(Product::class, 25)->create();
+    //   $this->call(CategoryTableSeeder::class);
+    //   $this->call(SubCategoryTableSeeder::class);
     }
 }

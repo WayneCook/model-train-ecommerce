@@ -28,7 +28,7 @@ class Product extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ["name","categories_id","sub_categories_id","brand","scale","description","main_image","price","stock","created_at","updated_at"];
+    protected $fillable = ["name","category_id","sub_category_id","brand","scale","description","main_image","price","stock","created_at","updated_at"];
     protected $hidden = ["original_image_name","slug"];
     // protected $dates = [];
 
@@ -52,12 +52,12 @@ class Product extends Model
 
     public function category()
     {
-       return $this->belongsTo('App\Models\Category','categories_id');
+       return $this->belongsTo('App\Models\Category','category_id');
     }
 
     public function subCategory()
     {
-       return $this->belongsTo('App\Models\SubCategory','sub_categories_id');
+       return $this->belongsTo('App\Models\SubCategory','sub_category_id');
     }
 
     /*

@@ -22,7 +22,7 @@ class SubCategory extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name',	'categories_id', 'description',	'image'];
+    protected $fillable = ['name',	'category_id', 'description',	'image'];
     protected $hidden = ['slug', 'thumbnail', 'original_image_name'];
     // protected $dates = [];
 
@@ -39,7 +39,7 @@ class SubCategory extends Model
     */
     public function categories()
     {
-        return $this->belongsTo('App\Models\Category', 'categories_id');
+        return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
     /*

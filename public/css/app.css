@@ -12569,7 +12569,7 @@ a.text-dark:focus {
 .hero-train-column,
 .hero-layout-column {
   position: relative;
-  height: calc(100vh - 167px);
+  height: calc(100vh - 196px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12674,7 +12674,7 @@ body #app .main-container {
 }
 
 img.navLogo {
-  width: 142px;
+  width: 148px;
   margin: 28px 2px;
   transition: width 0.35s ease-out;
   image-rendering: -moz-crisp-edges;
@@ -12838,11 +12838,53 @@ ul.list {
   display: inline-block;
   font-size: 14px;
   margin-right: 44px;
-  letter-spacing: 0.5px;
   font-weight: 600;
-  padding: 12px;
+  padding: 16px;
   text-transform: uppercase;
   transition: all 0.15s ease;
+}
+
+ul.list {
+  list-style-type: none;
+  cursor: default;
+  margin: 0px;
+}
+
+.list li * {
+  pointer-events: none;
+}
+
+.list li i {
+  margin-left: 2px;
+  transition: all 0.15s ease;
+}
+
+.selected {
+  box-shadow: inset 0px -5px 0px 0px #EC4036;
+}
+
+.underline {
+  width: 100%;
+  display: block;
+  position: absolute;
+  height: 3px;
+  background-color: rgba(22, 51, 80, 0.45);
+  bottom: 0px;
+  left: 0px;
+}
+
+.dropDownSection ul {
+  list-style-type: none;
+}
+
+.dropDownSection li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.dropDownSection li a {
+  color: black;
+  font-size: 14px;
 }
 
 .small-nav {
@@ -12873,7 +12915,7 @@ nav.navbar-custom.menu.small-menu li {
 
 .navbar-custom.main-menu .dropDownSection {
   position: absolute;
-  top: 43px;
+  top: 53px;
   z-index: 9999;
   background-color: white;
   width: 100%;

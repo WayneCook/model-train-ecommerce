@@ -48,7 +48,7 @@ class ProductCrudController extends CrudController
         $this->crud->addField([  // Select
            'label' => "Category",
            'type' => 'select',
-           'name' => 'categories_id', // the db column for the foreign key
+           'name' => 'category_id', // the db column for the foreign key
            'entity' => 'category', // the method that defines the relationship in your Model
            'attribute' => 'name', // foreign key attribute that is shown to user
            'model' => "App\Models\Category",
@@ -57,7 +57,7 @@ class ProductCrudController extends CrudController
         $this->crud->addField([  // Select
            'label' => "Sub-Category",
            'type' => 'select',
-           'name' => 'sub_categories_id', // the db column for the foreign key
+           'name' => 'sub_category_id', // the db column for the foreign key
            'entity' => 'subCategory', // the method that defines the relationship in your Model
            'attribute' => 'name', // foreign key attribute that is shown to user
            'model' => "App\Models\SubCategory",

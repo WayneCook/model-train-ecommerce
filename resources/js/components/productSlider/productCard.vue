@@ -1,8 +1,9 @@
 <template>
 
-<div class="col-lg col-md-6 card-custom" style="width: 18rem;">
+<div class="card-custom">
   <div class="card card-inner">
     <div class="image">
+        <span class="scale-icon" :data-count='product.scale'></span>
       <span @click='viewDetails()' class="icon-1 flaticons flaticon-spy"></span>
       <span class="icon-2 flaticons flaticon-heart"></span>
       <span class="icon-3 flaticons flaticon-spy"></span>
@@ -11,7 +12,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="item-price">{{ "$" + product.price.toFixed(2) }}</p>
-      <form v-on:submit.prevent class="" :action="'add-to-cart/' + product.id +'/1'" method="get">
+      <form v-on:submit.prevent class="" :action="'/add-to-cart/' + product.id +'/1'" method="get">
         <button @click='addToCart()' class="hvr-outline-in-blue btn-custom-green-blue">ADD TO CART</button>
       </form>
     </div>
@@ -34,7 +35,6 @@
       },
       addToCart(){
 
-
         if (this.product.stock >= 1) {
 
           this.$mainEventBus.$emit('addToCartEvent', this.product.id);
@@ -47,10 +47,10 @@
 
         switch(this.product.main_image) {
           case null:
-            return 'images/product/default_product.jpg';
+            return '/images/product/default_product.jpg';
             break;
           default:
-            return 'images/product/' + this.product.main_image;
+            return '/images/product/' + this.product.main_image;
         }
       }
     }
@@ -87,13 +87,20 @@ p.item-price {
 .card-custom {
   padding-right: 10px;
   padding-left: 10px;
-  margin: auto;
+  /* margin: auto; */
+  width: 100%;
+
+}
+
+.card-body h5 {
+    font-size: 18px
 }
 
 .image {
   position: relative;
   overflow: hidden;
-  padding-bottom:100%;
+  padding-bottom: 100%;
+  /* height: 257px; */
   background-color: white;
   box-shadow: -1px 1px 3px 0px hsla(0, 0%, 50%, 0.25);
   transition: all .25s cubic-bezier(0.2, 0.2, 0, 1.01);
@@ -168,10 +175,6 @@ p.item-price {
   color: hsla(174, 100%, 30%, 1);
 }
 
-.productImage {
-
-}
-
 .image img {
   position: absolute;
   max-width: 100%;
@@ -190,5 +193,33 @@ p.item-price {
     flex: 1 1 auto;
     padding: 1.25rem 0px;
 }
+
+/* span.scale-icon {
+    position: absolute;
+    top: 10px;
+    right: 53px;
+} */
+
+.scale-icon[data-count]:after {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 8px;
+    content: attr(data-count);
+    font-size: 68%;
+    padding: 5px;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    height: 28px;
+    min-width: 28px;
+    font-weight: 600;
+    background-color: #9e9e9e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
 
 </style>

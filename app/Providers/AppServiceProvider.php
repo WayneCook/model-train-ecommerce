@@ -32,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $categories = Category::with('subCategories')->get();
         View::share('categories', $categories);
 

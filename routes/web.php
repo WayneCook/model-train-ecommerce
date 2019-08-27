@@ -15,7 +15,9 @@ use App\Category;
 //     return view('home');
 // });
 
-Auth::routes();
+Route::get('/products', 'ProductController@index');
+
+
 
 Route::get('/', 'HomeController@index');
 
@@ -30,14 +32,14 @@ Route::get('remove-from-cart/{id}/{count}', 'CartController@removeFromCart')->na
 Route::get('delete-item/{id}', 'CartController@deleteItem')->name('product.delete');
 Route::get('cart-reset', 'CartController@cartReset');
 Route::get('get-cart', 'CartController@getCart');
+Route::get('product/api', 'ProductApiController@index');
 
-// Route::get('/{category}/{subCategory}', 'subCategoryController@index');
+Route::get('/{category}/{subCategory}', 'ProductController@index');
 
 Route::get('/{category}', 'CategoryController@index')->name('category');
 
 Route::post('image/deleteOldProductImage', 'ImageController@deleteOldProductImage');
 Route::post('image/deleteOldCategoryImage', 'ImageController@deleteOldCategoryImage');
 Route::post('image/deleteOldSubCategoryImage', 'ImageController@deleteOldSubCategoryImage');
-// Route::get('/{category}/{subCategory}', 'CategoryController@show')->name('search');
 
 Auth::routes();

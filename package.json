@@ -29,6 +29,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.8.1",
         "bootstrap-fileinput": "^5.0.2",
+        "bootstrap-slider": "^10.6.2",
         "dropzone": "^5.5.1",
         "hover.css": "^2.3.2",
         "jquery-ui": "^1.12.1",

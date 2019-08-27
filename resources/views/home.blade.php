@@ -4,11 +4,9 @@
 
 <div class="small-nav">
   <div class="small-nav-wrapper">
-
     <cart-icon></cart-icon>
   </div>
-  <nav-menu :fontcolor='"hsla(210, 57%, 20%, 0.82)"' :categories="{{ $categories }}" class="menu small-menu">
-  </nav-menu>
+  <nav-menu :fontcolor='"hsla(210, 57%, 20%, 0.82)"' :categories="{{ $categories }}" class="menu small-menu"></nav-menu>
 
 </div>
 
@@ -161,7 +159,6 @@
   <script src="{{ asset('js/css3-animate-it.js') }}"></script>
 
   <script type="text/javascript">
-
 
   //When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
     window.onscroll = function() {scrollFunction()};

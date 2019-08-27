@@ -25,7 +25,7 @@
       //
     },
     mounted() {
-      console.log(this.categories);
+      //
     }
   };
 

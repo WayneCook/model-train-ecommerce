@@ -39,7 +39,3 @@ import list from './menuList.vue';
   };
 
 </script>
-
-<style scoped>
-
-</style>

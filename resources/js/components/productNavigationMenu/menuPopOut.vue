@@ -45,23 +45,3 @@
     }
 </script>
 
-<style scoped>
-
-
-
-.dropDownSection ul {
-  list-style-type: none;
-}
-
-.dropDownSection li {
-  display: inline-block;
-  margin-right: 20px;
-
-}
-
-.dropDownSection li a {
-  color: black;
-  font-size: 14px;
-}
-
-</style>

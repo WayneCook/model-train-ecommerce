@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class SearchProducts extends Controller
 {
 
-  public function search($category)
-  {
-    $product = Product::find($id);
-    return view('product.show', ['product' => $product]);
-  }
+    public function search(Category $category, SubCategory $subCategory, $filter = null)
+    {
+
+
+    }
 
 }

@@ -7,16 +7,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'DTains') }}</title>
+    <title>{{ config('app.name', 'DTrains') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('css')
 
-    <!-- Fonts -->
-    <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"> -->
-
-    <!-- Styles -->
     <style>
 
 
@@ -45,7 +41,7 @@
 
           <div class="logo-wrapper">
             <a class="brand" href="{{ url('/') }}">
-            <img class="navLogo" src="{{ asset('images/train_logo.svg') }}" alt="">
+            <img class="navLogo" src="{{ asset('images/new_train_logo.svg') }}" alt="">
             </a>
           </div>
 
@@ -63,95 +59,87 @@
       </main>
   </div>
 
-  <div class="footer-wrapper">
-    <div class="logo-wrapper">
+    <div class="footer-wrapper container-fluid">
+        <div class="logo-wrapper">
+            <img class="footerLogo" src="{{ asset('images/new_train_logo.svg') }}" alt="">
+        </div>
+    <div class="footer-inner container">
 
-      <img class="footerLogo" src="{{ asset('images/train_logo.svg') }}" alt="">
-    </div>
-  <div class="footer-inner">
+    <footer class="footer-container row">
+        <div class="col-lg col-md-6 col-sm-12">
+            <section class="footer-section">
+            <h1>EXPRESS TRAINS</h1>
+            <ul>
+                <li><p>1888-248-4209</p>
+                <p>1044 Main ST<br>
+                Monrovia, Ca 91016</p></li>
+                <li><a href="###">Contact Us</a></li>
+                <li><p>2019 Dimitri Train. All Rights Reserved.</p></li>
+            </ul>
+            </section>
+        </div>
 
-  <footer class="footer-container row">
-    <div class="col-lg col-md-6 col-sm-12">
-      <section class="footer-section">
-        <h1>Dimitri Trains</h1>
-        <ul>
-          <li><p>1888-248-4209</p>
-          <p>1044 Main ST<br>
-          Monrovia, Ca 91016</p></li>
-          <li><a href="###">Contact Us</a></li>
-          <li><p>2019 Dimitri Train. All Rights Reserved.</p></li>
-        </ul>
-      </section>
-    </div>
-
-    <div class="col-lg col-md-6 col-sm-12">
-      <section class="footer-section">
-        <h1>Who We Are</h1>
-        <ul>
-          <li>
-              <a href="###">Gift Certificates</a>
-          </li>
-          <li>
-              <a href="###">Shipping &amp; Returns</a>
-          </li>
-          <li>
-              <a href="###">Order Status</a>
-          </li>
-          <li>
-              <a href="###">Privacy Policy</a>
-          </li>
-        </ul>
-      </section>
-    </div>
-
-    <div class="col-lg col-md-6 col-sm-12">
-
-      <section class="footer-section">
-        <h1>Who We Are</h1>
-        <ul>
-          <li>
-              <a href="###">Gift Certificates</a>
-          </li>
-          <li>
-              <a href="###">Shipping &amp; Returns</a>
-          </li>
-          <li>
-              <a href="###">Order Status</a>
-          </li>
-          <li>
-              <a href="###">Privacy Policy</a>
-          </li>
-        </ul>
-      </section>
-    </div>
-
-    <div class="col-lg col-md-6 col-sm-12">
-      <section class="footer-section">
-        <h1>Who We Are</h1>
-        <ul>
-          <li>
-              <a href="###">Gift Certificates</a>
-          </li>
-          <li>
-              <a href="###">Shipping &amp; Returns</a>
-          </li>
-          <li>
-              <a href="###">Order Status</a>
-          </li>
-          <li>
-              <a href="###">Privacy Policy</a>
-          </li>
-        </ul>
-      </section>
-    </div>
-
-  </footer>
+        <div class="col-lg col-md-6 col-sm-12">
+            <section class="footer-section">
+            <h1>WHO WE ARE</h1>
+            <ul>
+                <li>
+                    <a href="###">Gift Certificates</a>
+                </li>
+                <li>
+                    <a href="###">Shipping &amp; Returns</a>
+                </li>
+                <li>
+                    <a href="###">Order Status</a>
+                </li>
+                <li>
+                    <a href="###">Privacy Policy</a>
+                </li>
+            </ul>
+            </section>
+        </div>
+        <div class="col-lg col-md-6 col-sm-12">
+            <section class="footer-section">
+            <h1>WHO WE ARE</h1>
+            <ul>
+                <li>
+                    <a href="###">Gift Certificates</a>
+                </li>
+                <li>
+                    <a href="###">Shipping &amp; Returns</a>
+                </li>
+                <li>
+                    <a href="###">Order Status</a>
+                </li>
+                <li>
+                    <a href="###">Privacy Policy</a>
+                </li>
+            </ul>
+            </section>
+        </div>
+        <div class="col-lg col-md-6 col-sm-12">
+            <section class="footer-section">
+            <h1>WHO WE ARE</h1>
+            <ul>
+                <li>
+                    <a href="###">Gift Certificates</a>
+                </li>
+                <li>
+                    <a href="###">Shipping &amp; Returns</a>
+                </li>
+                <li>
+                    <a href="###">Order Status</a>
+                </li>
+                <li>
+                    <a href="###">Privacy Policy</a>
+                </li>
+            </ul>
+            </section>
+        </div>
+    </footer>
   </div>
-  </div>
-
 
   @yield('scripts')
-
 
 </body>
 </html>

@@ -37,7 +37,7 @@
         let count = e.target.value;
         let id = this.product.item.id;
 
-        axios.get("update-cart/"+id+"/"+count)
+        axios.get("/update-cart/"+id+"/"+count)
         .then(response => {
           let cart = response.data.cart;
           this.$mainEventBus.$emit('updateCart');
@@ -45,7 +45,7 @@
       },
       deleteItem(id){
 
-        axios.get("delete-item/"+this.product.item.id)
+        axios.get("/delete-item/"+this.product.item.id)
         .then(response => {
           let cart = response.data.cart;
           this.$mainEventBus.$emit('updateCart');
@@ -59,10 +59,10 @@
 
         switch(this.image) {
           case null:
-            return 'images/thumbnails/default_product.jpg';
+            return '/images/thumbnails/default_product.jpg';
             break;
           default:
-            return 'images/thumbnails/' + this.image;
+            return '/images/thumbnails/' + this.image;
           }
       },
       trimString: function(){

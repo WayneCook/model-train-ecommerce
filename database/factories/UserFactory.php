@@ -2,8 +2,7 @@
 
 use Faker\Generator as Faker;
 use App\Product;
-use App\Category;
-use App\SubCategory;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,16 +16,5 @@ use App\SubCategory;
 */
 
 
-$factory->define(Product::class, function (Faker $faker) {
 
-    return [
-        'name' => $faker->sentence($nbWords = 3, $variableNbWords = true),
-        'description' => 'This is a product description.',
-        'price' => $faker->numberBetween($min = 100, $max = 800),
-        'categories_id' => 1,
-        'sub_categories_id' => 2,
-        'brand' => 'Bachmann',
-        'stock' => 10,
-        'slug' => $faker->sentence($nbWords = 3, $variableNbWords = true)
-    ];
-});
+

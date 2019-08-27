@@ -9,15 +9,15 @@
           <h1 v-else>Your cart is empty!</h1>
           <div class="shipping-header" v-if="cartExists">
             <span class="free-shipping promo-shipping" style="display: inline;">
-              <img src="images/checkIcon.svg" alt="">
+              <img src="/images/checkIcon.svg" alt="">
               Free Shipping
             </span>
           </div> <!-- Shipping header -->
           <div v-if="!cartExists" class="emptyCartImage">
-            <img src="images/emptyCartIcon.svg" alt="">
+            <img src="/images/emptyCartIcon.svg" alt="">
           </div>
           <div class="product-container">
-            <product :product="item" v-for='(item, index) in items' v-bind:key="item.id"></product>
+            <product :product="item" v-for='(item, index) in items' v-bind:key="index"></product>
           </div>
           <div class="order-total" v-if="cartExists">
             <p>Order Subtotal:</p>
@@ -63,7 +63,7 @@ export default {
 
     getCart(){
 
-      axios.get("get-cart")
+      axios.get("/get-cart")
       .then(response => {
         let cart = response.data.cart;
         this.updateCart(cart);
@@ -73,7 +73,7 @@ export default {
     },
     addToCart(id){
 
-      axios.get("add-to-cart/"+id+"/1")
+      axios.get("/add-to-cart/"+id+"/1")
       .then(response => {
         let cart = response.data.cart;
         this.updateCart(cart);

@@ -31,37 +31,3 @@
   };
 
 </script>
-
-<style scoped>
-
-ul.list {
-  list-style-type: none;
-  cursor: default;
-  margin: 0px;
-}
-
-.list li * {
-  pointer-events: none;
-}
-
-.list li i {
-  margin-left: 2px;
-  transition: all .15s ease;
-}
-
-.selected {
-  box-shadow: inset 0px -5px 0px 0px #EC4036;
-}
-
-
-.underline {
-  width: 100%;
-  display: block;
-  position: absolute;
-  height: 3px;
-  background-color: rgba(22, 51, 80, 0.45);
-  bottom: 0px;
-  left: 0px;
-}
-
-</style>

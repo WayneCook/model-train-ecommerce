@@ -27,6 +27,7 @@ Vue.component('video-modal', require('./components/videoModal/modal.vue').defaul
 Vue.component('shopping-cart', require('./components/cart/cartComponent.vue').default);
 Vue.component('product', require('./components/cart/productComponent.vue').default);
 Vue.component('cart-icon', require('./components/cart/cartIcon.vue').default);
+Vue.component('search-filters', require('./components/productSearch/searchFilters.vue').default);
 
 Vue.prototype.$mainEventBus = new Vue(); // Global event bus
 

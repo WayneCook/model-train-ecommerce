@@ -21,7 +21,8 @@ class SubCategoryCrudController extends CrudController
     {
 
       $this->crud->addField([
-         'name' => 'categories_id',
+
+         'name' => 'category_id',
          'label' => 'Category',
          'type' => 'select',
          'entity' => 'categories',
